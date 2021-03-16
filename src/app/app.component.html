@@ -1,0 +1,55 @@
+<div class="container text-center">
+  <h2>Fast Food</h2>
+</div>
+<div class="container">
+  <form>
+      <div class="form-check">
+          <div class="row">
+              <div class="col-sm-2">
+                  <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" value="" (click)="addNofPuff()">Puff
+                  </label>
+              </div>
+              <div class="col-sm-10" *ngIf="no_of_puff">
+                <input type="number" class="form-control" placeholder="Enter number of puff" #puffDiv (keyup)="callpuff(puffDiv.value)">                
+              </div>
+          </div>
+      </div>
+      <div class="form-check">
+          <div class="row">
+              <div class="col-sm-2">
+                  <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" value="" (click)="addNofDabeli()">Dabeli
+                  </label>
+              </div>
+              <div class="col-sm-10" *ngIf="no_OF_dabeli">
+                <input type="number" class="form-control" placeholder="Enter number of dabeli" #dabeliDiv (keyup)="calldabeli(dabeliDiv.value)">                
+              </div>
+          </div>
+      </div>
+      <div class="form-check">
+          <div class="row">
+              <div class="col-sm-2">
+                  <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" value="" (click)="addNofVadapav()">Vadapav
+                  </label>
+              </div>
+              <div class="col-sm-10" *ngIf="no_OF_vadapav">
+                <input type="number" class="form-control" placeholder="Enter number of vadapav" #vadapavDiv (keyup)="callvadapav(vadapavDiv.value)">
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <button class="btn btn-primary" type="button" (click)="total()">Add</button>
+      </div>
+  </form>
+  <div class="container text-center" *ngIf="bill"> 
+    <h4 *ngIf="puffTotal">puff = {{puff}} Rs.{{totalPrice_puff}}</h4>
+    <h4 *ngIf="dabeliTotal">dabeli = {{dabeli}} Rs.{{totalPrice_dabeli}}</h4>
+    <h4 *ngIf="vadapavTotal">vadapav = {{vadapav}} Rs.{{totalPrice_vadapav}}</h4>
+    <h3 *ngIf="allTotal">total = {{totalPrice}}</h3>
+    <button type="button" class="btn btn-primary" (click)="PrintBill()">Print</button>
+  </div>
+</div>
+<router-outlet></router-outlet>
